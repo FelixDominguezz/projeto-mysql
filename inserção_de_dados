@@ -1,0 +1,88 @@
+use ecommerce;
+
+-- inserindo valores na tabela clientes
+
+insert into Clients (Fname, Minit, Lname, CPF, address)
+	values('Jonathan', 'J', 'Maciel', '03462119124', 'Rua Tomas Aquino 22, Centro - Vila Vargas' ),
+		    ('Matheus', 'E', 'Oviedo', '12960386007', 'Rua Akivamu Àlmossar 03, Akredam - Abu Dabi' ),
+        ('Carlos', 'F', 'Barbosa', '75990485122', 'Av Hiroshima 12, Nagasaki - japão' ),
+        ('Djalma', 'S', 'Klein', '04430611783', 'Rua Cel. Antonio Raspati 26, Fernando Sales - São Cristovão' ),
+        ('Marcia', 'O', 'Fukushima', '87739107621', 'Rua Leôncio Almondêgas 45, Jardim dos Rios - Itu' ),
+        ('Roberta', 'M', 'Bertoncelo', '10971024035', 'Rua Kollteu Sabes 31, Serra Leoa - Serra da Mantiqueira' ),
+        ('Pedro', 'C', 'Alves', '02500136774', 'Avenida Jhonsons Coke 53, Broklyn - Nova Iorque' ),
+        ('Tiago', 'L', 'Silvano', '46782921355', 'Rua Vaeda Okudamarra 20, Vila das flores - Manaus' ),
+        ('joão', 'K', 'Rodrigues', '32884610032', 'Avenida water cola mizu 64, Jacksons five - Nova Orleans' );
+select * from clients;
+
+-- inserindo valores na tabela produtos
+
+insert into product (Pname, classification_kids, category, avaliacao, size) 
+	values('Fone de Ouvido', false, 'Eletronico','4', null),
+		    ('Barbie Elsa', true, 'Brinquedos','3', null),
+        ('Body Carters', true, 'Vestuario','5', null),
+        ('Microfone Vedo - Youtuber', false, 'Eletronico','4', null),
+        ('Sofa retrátil', false, 'Moveis','3', '220x90x80');
+       
+select * from product;
+
+-- inserindo valores na tabela pedido
+
+insert into orders (idorderclient, orderstatus, orderdescription, sendvalue, paymentcash)
+	values(1,default,'Compra via Aplicativo',null,1),
+		    (2,default,'Compra via Aplicativo',50,0),
+        (3,'Confirmado',null,null,1),
+        (4,default,'Compra via Web Site',150,0);
+select * from orders;
+
+
+insert into productOrder (idPOproduct, idPOorder, poQuantity, poStatus)
+	values(1,1,2,null),
+		    (2,1,1,null),
+		    (3,1,1,null);
+select * from productorder;
+
+
+insert into productStorage (storageLocation, quantity)
+	values('Rio de Janeiro', 1000),
+		    ('Rio de Janeiro', 500),
+        ('São Paulo', 10),
+        ('São Paulo', 100),
+        ('São Paulo', 10),
+        ('Brasilia', 60);
+select * from productstorage;
+
+
+insert into storageLocation (idLproduct, idLstorage, location)
+	values(1,2,'RJ'),
+		    (2,6,'GO');
+select * from storagelocation;
+
+
+insert into supplier (SocialName, CNPJ, Contact)
+	values('Almeida e Filhos', '12345678901234', '21995739558'),
+		    ('Eletronicos Silva', '43210987654321', '41998956758'),
+        ('Eletronicos Valma', '87654321098765', '11996749558');
+select * from supplier;
+
+
+insert into productSupplier (idPsSupplier, idPsProduct, quantity)
+	values(4,1,500), 
+		    (4,2,400),
+		    (5,4,633),
+        (6,3,5),
+        (5,5,10);
+select * from productsupplier;
+
+insert  into seller (Socialname, Abstname, cnpj, cpf, location, contact)
+	values('Tech Eletronics', null, 12345678901234, null, 'Rio de Janeiro', 21995718558),
+		    ('Boutique Dunga', null, null, 12345678901, 'Rio de Janeiro', 21995893451),
+        ('Tech Eletronics', null, 23456789012345, null, 'São Paulo', 1197618552);
+select * from seller;
+
+insert into productSeller (idPseller, idProduct, prodQuantity)
+	values(1,6,80),
+        (2,7,10);
+
+select * from productSeller; 
+
+
